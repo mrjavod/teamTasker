@@ -1,0 +1,22 @@
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea
+*.iml
+*.iws
+*.class
+target
+ 
+# Mac
+.DS_Store
+ 
+# my loc
+urgentex/
+out/
+
+/build/
+
+docs
