@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1b67c83-31bd-4d5a-b625-219e7c674001" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/is/teamTasker/TaskerApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/is/teamTasker/TaskerApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/is/teamTasker/controller/AuthController.class" afterPath="$PROJECT_DIR$/target/classes/com/is/teamTasker/controller/AuthController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/is/teamTasker/controller/RoleController.class" afterPath="$PROJECT_DIR$/target/classes/com/is/teamTasker/controller/RoleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/is/teamTasker/jwt/JwtUserFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/is/teamTasker/jwt/JwtUserFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/is/teamTasker/repository/UserRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/is/teamTasker/repository/UserRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -658,7 +652,7 @@
       <workItem from="1594397830591" duration="39330000" />
       <workItem from="1595949888202" duration="20443000" />
       <workItem from="1596215119074" duration="635000" />
-      <workItem from="1597070605901" duration="446000" />
+      <workItem from="1597070605901" duration="490000" />
     </task>
     <task id="LOCAL-00001" summary="changed repository methods">
       <created>1597071033019</created>
@@ -674,11 +668,18 @@
       <option name="project" value="LOCAL" />
       <updated>1597071052497</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new module - mailer">
+      <created>1597071097466</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597071097466</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66039000" />
+    <option name="totallyTimeSpent" value="66083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -724,7 +725,8 @@
       <path value="$PROJECT_DIR$/cashApp" />
     </ignored-roots>
     <MESSAGE value="changed repository methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed repository methods" />
+    <MESSAGE value="new module - mailer" />
+    <option name="LAST_COMMIT_MESSAGE" value="new module - mailer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
