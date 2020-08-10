@@ -652,7 +652,7 @@
       <workItem from="1594397830591" duration="39330000" />
       <workItem from="1595949888202" duration="20443000" />
       <workItem from="1596215119074" duration="635000" />
-      <workItem from="1597070605901" duration="490000" />
+      <workItem from="1597070605901" duration="539000" />
     </task>
     <task id="LOCAL-00001" summary="changed repository methods">
       <created>1597071033019</created>
@@ -675,11 +675,18 @@
       <option name="project" value="LOCAL" />
       <updated>1597071097466</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="auto changed workspace">
+      <created>1597071146478</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597071146478</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66083000" />
+    <option name="totallyTimeSpent" value="66132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -726,7 +733,8 @@
     </ignored-roots>
     <MESSAGE value="changed repository methods" />
     <MESSAGE value="new module - mailer" />
-    <option name="LAST_COMMIT_MESSAGE" value="new module - mailer" />
+    <MESSAGE value="auto changed workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto changed workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
