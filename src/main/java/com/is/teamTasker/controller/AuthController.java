@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,7 +41,7 @@ public class AuthController {
     public ResponseEntity registration(@RequestBody User user) {
 
         userRepository.save(new User(user.getUsername(), passwordEncoder.encode(user.getPassword()),
-                user.getFirstname(), user.getLastname(), user.getEmail(), false, Status.ACTIVE, user.getRoles()));
+                user.getFirstname(), user.getLastname(), user.getEmail(), false, Status.INACTIVE, user.getRoles()));
 
         return ResponseEntity.ok(new AppResponse(1, "User created !"));
     }
@@ -58,10 +57,10 @@ public class AuthController {
 
         String username = request.getUsername();
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, request.getPassword()));
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsernameAndEnabledAndStatus(username, true, Status.ACTIVE);
 
         if (user == null) {
-            throw new UsernameNotFoundException("User with username: " + username + " not found");
+            return ResponseEntity.ok(new AppResponse(1, "User is not active"));
         }
 
         String token = jwtTokenProvider.generateToken(user);
