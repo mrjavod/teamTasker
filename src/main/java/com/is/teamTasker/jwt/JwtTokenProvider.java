@@ -12,10 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class JwtTokenProvider {
@@ -41,6 +38,7 @@ public class JwtTokenProvider {
 
         Claims claims = Jwts.claims().setSubject(user.getUsername());
         claims.put("roles", getRoleNames(user.getRoles()));
+        claims.put("userId", user.getUserId());
         claims.put("firstname", user.getFirstname());
         claims.put("lastname", user.getLastname());
         claims.put("email", user.getEmail());
@@ -59,11 +57,25 @@ public class JwtTokenProvider {
 
     public Authentication getAuthentication(String token) {
         UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(getUsername(token));
-        return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+        User user = getUserCredentialsFromToken(token);
+        return new UsernamePasswordAuthenticationToken(userDetails, user, userDetails.getAuthorities());
     }
 
     public String getUsername(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
+    }
+
+    public User getUserCredentialsFromToken(String token) {
+        Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        User user = new User();
+        user.setUsername(claims.getSubject());
+        user.setUserId(UUID.fromString(claims.get("userId").toString()));
+        user.setFirstname(claims.get("firstname").toString());
+        user.setLastname(claims.get("lastname").toString());
+        user.setEmail(claims.get("email").toString());
+        user.setEnabled(Boolean.getBoolean(claims.get("enabled").toString()));
+
+        return user;
     }
 
     public String resolveToken(HttpServletRequest request) {

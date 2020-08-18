@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2020-07-12.22:04:14.169</IntrospectionTimestamp>
-      <IntrospectionStateNumber>883</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2020-08-18.22:30:47.430</IntrospectionTimestamp>
+      <IntrospectionStateNumber>928</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -29,184 +29,422 @@
     <schema id="8" parent="2" name="information_schema">
       <ObjectId>12648</ObjectId>
     </schema>
-    <sequence id="9" parent="3" name="roles_id_seq">
+    <sequence id="9" parent="3" name="hibernate_sequence">
+      <ObjectId>17082</ObjectId>
+      <StateNumber>902</StateNumber>
+    </sequence>
+    <sequence id="10" parent="3" name="seq_projects">
+      <ObjectId>17089</ObjectId>
+      <StateNumber>906</StateNumber>
+    </sequence>
+    <sequence id="11" parent="3" name="seq_teams">
+      <ObjectId>17101</ObjectId>
+      <StateNumber>917</StateNumber>
+    </sequence>
+    <sequence id="12" parent="3" name="seq_users_teams">
+      <ObjectId>17113</ObjectId>
+      <StateNumber>920</StateNumber>
+    </sequence>
+    <sequence id="13" parent="3" name="roles_id_seq">
       <ObjectId>17009</ObjectId>
       <StateNumber>855</StateNumber>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <table id="10" parent="3" name="roles">
+    <table id="14" parent="3" name="projects">
+      <ObjectId>17072</ObjectId>
+      <StateNumber>927</StateNumber>
+    </table>
+    <table id="15" parent="3" name="roles">
       <ObjectId>17011</ObjectId>
       <StateNumber>882</StateNumber>
     </table>
-    <table id="11" parent="3" name="users">
-      <ObjectId>17019</ObjectId>
-      <StateNumber>883</StateNumber>
+    <table id="16" parent="3" name="teams">
+      <ObjectId>17091</ObjectId>
+      <StateNumber>928</StateNumber>
     </table>
-    <table id="12" parent="3" name="users_roles">
+    <table id="17" parent="3" name="teams_projects">
+      <ObjectId>17125</ObjectId>
+      <StateNumber>928</StateNumber>
+    </table>
+    <table id="18" parent="3" name="users">
+      <ObjectId>17019</ObjectId>
+      <StateNumber>922</StateNumber>
+    </table>
+    <table id="19" parent="3" name="users_roles">
       <ObjectId>17059</ObjectId>
       <StateNumber>883</StateNumber>
     </table>
-    <column id="13" parent="10" name="id">
+    <table id="20" parent="3" name="users_teams">
+      <ObjectId>17108</ObjectId>
+      <StateNumber>922</StateNumber>
+    </table>
+    <column id="21" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>899</StateNumber>
+    </column>
+    <column id="22" parent="14" name="created">
+      <Position>2</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>899</StateNumber>
+    </column>
+    <column id="23" parent="14" name="status">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>899</StateNumber>
+    </column>
+    <column id="24" parent="14" name="updated">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>899</StateNumber>
+    </column>
+    <column id="25" parent="14" name="description">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>899</StateNumber>
+    </column>
+    <column id="26" parent="14" name="name">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>899</StateNumber>
+    </column>
+    <column id="27" parent="14" name="user_id">
+      <Position>7</Position>
+      <DataType>uuid|0</DataType>
+      <StateNumber>899</StateNumber>
+    </column>
+    <index id="28" parent="14" name="projects_pkey">
+      <ObjectId>17078</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="29" parent="14" name="uk_1e447b96pedrvtxw44ot4qxem">
+      <ObjectId>17080</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="14" name="projects_pkey">
+      <ObjectId>17079</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>projects_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="31" parent="14" name="uk_1e447b96pedrvtxw44ot4qxem">
+      <ObjectId>17081</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>uk_1e447b96pedrvtxw44ot4qxem</UnderlyingIndexName>
+    </key>
+    <foreign-key id="32" parent="14" name="fkhswfwa3ga88vxv1pmboss6jhm">
+      <ObjectId>17084</ObjectId>
+      <ColNames>user_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="33" parent="15" name="id">
       <Position>1</Position>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>855</StateNumber>
       <SequenceName>roles_id_seq</SequenceName>
     </column>
-    <column id="14" parent="10" name="created">
+    <column id="34" parent="15" name="created">
       <Position>2</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>855</StateNumber>
     </column>
-    <column id="15" parent="10" name="name">
+    <column id="35" parent="15" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>855</StateNumber>
     </column>
-    <column id="16" parent="10" name="status">
+    <column id="36" parent="15" name="status">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>865</StateNumber>
     </column>
-    <column id="17" parent="10" name="updated">
+    <column id="37" parent="15" name="updated">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>866</StateNumber>
     </column>
-    <index id="18" parent="10" name="roles_pkey">
+    <index id="38" parent="15" name="roles_pkey">
       <ObjectId>17014</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="19" parent="10" name="roles_pkey">
+    <key id="39" parent="15" name="roles_pkey">
       <ObjectId>17015</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>roles_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="20" parent="11" name="user_id">
+    <column id="40" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="41" parent="16" name="created">
+      <Position>2</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="42" parent="16" name="status">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="43" parent="16" name="updated">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="44" parent="16" name="description">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="45" parent="16" name="name">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>914</StateNumber>
+    </column>
+    <index id="46" parent="16" name="teams_pkey">
+      <ObjectId>17097</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="47" parent="16" name="uk_a510no6sjwqcx153yd5sm4jrr">
+      <ObjectId>17099</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="48" parent="16" name="teams_pkey">
+      <ObjectId>17098</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>teams_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="49" parent="16" name="uk_a510no6sjwqcx153yd5sm4jrr">
+      <ObjectId>17100</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>uk_a510no6sjwqcx153yd5sm4jrr</UnderlyingIndexName>
+    </key>
+    <column id="50" parent="17" name="team_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>926</StateNumber>
+    </column>
+    <column id="51" parent="17" name="project_id">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>926</StateNumber>
+    </column>
+    <foreign-key id="52" parent="17" name="fk6mh871u1e0ddd1ce4h5eqgwn">
+      <ObjectId>17133</ObjectId>
+      <ColNames>team_id</ColNames>
+      <RefTableName>teams</RefTableName>
+      <RefKeyName>teams_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="53" parent="17" name="fktffu9eernigh2165f6slxk2ww">
+      <ObjectId>17128</ObjectId>
+      <ColNames>project_id</ColNames>
+      <RefTableName>projects</RefTableName>
+      <RefKeyName>projects_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="54" parent="18" name="user_id">
       <Position>1</Position>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="21" parent="11" name="created">
+    <column id="55" parent="18" name="created">
       <Position>2</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="22" parent="11" name="status">
+    <column id="56" parent="18" name="status">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="23" parent="11" name="updated">
+    <column id="57" parent="18" name="updated">
       <Position>4</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="24" parent="11" name="email">
+    <column id="58" parent="18" name="email">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="25" parent="11" name="enabled">
+    <column id="59" parent="18" name="enabled">
       <Position>6</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="26" parent="11" name="firstname">
+    <column id="60" parent="18" name="firstname">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="27" parent="11" name="lastname">
+    <column id="61" parent="18" name="lastname">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="28" parent="11" name="password">
+    <column id="62" parent="18" name="password">
       <Position>9</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>857</StateNumber>
     </column>
-    <column id="29" parent="11" name="username">
+    <column id="63" parent="18" name="username">
       <Position>11</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>857</StateNumber>
     </column>
-    <index id="30" parent="11" name="users_pkey">
+    <index id="64" parent="18" name="users_pkey">
       <ObjectId>17025</ObjectId>
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="31" parent="11" name="uk_6dotkott2kjsp8vw4d0m25fb7">
+    <index id="65" parent="18" name="uk_6dotkott2kjsp8vw4d0m25fb7">
       <ObjectId>17027</ObjectId>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="32" parent="11" name="uk_r53o2ojjw4fikudfnsuuga336">
+    <index id="66" parent="18" name="uk_r53o2ojjw4fikudfnsuuga336">
       <ObjectId>17029</ObjectId>
       <ColNames>password</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="33" parent="11" name="uk_r43af9ap4edm43mmtq01oddj6">
+    <index id="67" parent="18" name="uk_r43af9ap4edm43mmtq01oddj6">
       <ObjectId>17031</ObjectId>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="34" parent="11" name="users_pkey">
+    <key id="68" parent="18" name="users_pkey">
       <ObjectId>17026</ObjectId>
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="35" parent="11" name="uk_6dotkott2kjsp8vw4d0m25fb7">
+    <key id="69" parent="18" name="uk_6dotkott2kjsp8vw4d0m25fb7">
       <ObjectId>17028</ObjectId>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>uk_6dotkott2kjsp8vw4d0m25fb7</UnderlyingIndexName>
     </key>
-    <key id="36" parent="11" name="uk_r53o2ojjw4fikudfnsuuga336">
+    <key id="70" parent="18" name="uk_r53o2ojjw4fikudfnsuuga336">
       <ObjectId>17030</ObjectId>
       <ColNames>password</ColNames>
       <UnderlyingIndexName>uk_r53o2ojjw4fikudfnsuuga336</UnderlyingIndexName>
     </key>
-    <key id="37" parent="11" name="uk_r43af9ap4edm43mmtq01oddj6">
+    <key id="71" parent="18" name="uk_r43af9ap4edm43mmtq01oddj6">
       <ObjectId>17032</ObjectId>
       <ColNames>username</ColNames>
       <UnderlyingIndexName>uk_r43af9ap4edm43mmtq01oddj6</UnderlyingIndexName>
     </key>
-    <column id="38" parent="12" name="user_id">
+    <column id="72" parent="19" name="user_id">
       <Position>1</Position>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>881</StateNumber>
     </column>
-    <column id="39" parent="12" name="role_id">
+    <column id="73" parent="19" name="role_id">
       <Position>2</Position>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>881</StateNumber>
     </column>
-    <foreign-key id="40" parent="12" name="fk2o0jvgh89lemvvo17cbqvdxaa">
+    <foreign-key id="74" parent="19" name="fk2o0jvgh89lemvvo17cbqvdxaa">
       <ObjectId>17067</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="41" parent="12" name="fkj6m8fwv7oqv74fcehir1a9ffy">
+    <foreign-key id="75" parent="19" name="fkj6m8fwv7oqv74fcehir1a9ffy">
       <ObjectId>17062</ObjectId>
       <ColNames>role_id</ColNames>
       <RefTableName>roles</RefTableName>
       <RefKeyName>roles_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="76" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>919</StateNumber>
+    </column>
+    <column id="77" parent="20" name="created">
+      <Position>2</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>919</StateNumber>
+    </column>
+    <column id="78" parent="20" name="status">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>919</StateNumber>
+    </column>
+    <column id="79" parent="20" name="updated">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>919</StateNumber>
+    </column>
+    <column id="80" parent="20" name="team_id">
+      <Position>5</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>919</StateNumber>
+    </column>
+    <column id="81" parent="20" name="user_id">
+      <Position>6</Position>
+      <DataType>uuid|0</DataType>
+      <StateNumber>919</StateNumber>
+    </column>
+    <index id="82" parent="20" name="users_teams_pkey">
+      <ObjectId>17111</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="83" parent="20" name="users_teams_pkey">
+      <ObjectId>17112</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>users_teams_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="84" parent="20" name="fkh5yx5pc8x6mv9ohqfh18tw6es">
+      <ObjectId>17115</ObjectId>
+      <ColNames>team_id</ColNames>
+      <RefTableName>teams</RefTableName>
+      <RefKeyName>teams_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="85" parent="20" name="fk31k9hhkcp7fiugrk2lu7vq9jo">
+      <ObjectId>17120</ObjectId>
+      <ColNames>user_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>

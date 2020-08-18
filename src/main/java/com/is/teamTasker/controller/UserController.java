@@ -84,5 +84,13 @@ public class UserController {
         return ResponseEntity.ok(new AppResponse(1, "User blocked"));
     }
 
+    @GetMapping("get/{userId}")
+    public ResponseEntity get(@PathVariable(name = "userId") UUID userId) {
+
+        User user = userRepository.getUserByUserId(userId);
+
+        return ResponseEntity.ok(new AppResponse(1, "OK", user));
+    }
+
 
 }
